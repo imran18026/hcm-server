@@ -1,0 +1,22 @@
+{
+  "name": "hcm-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Md Imran Hossain <mdimranhossain.ist@gmail.com>",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.8",
+    "prisma": "^5.15.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
