@@ -1,18 +1,25 @@
-import { NextFunction, Request, Response } from "express";
-import { userService } from "./user.service";
+import { Request, Response } from "express";
+import { userService } from "./user.sevice";
 
-const createAdmin = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const { password, ...adminData } = req.body;
-    const result = await userService.createAdmin(adminData, password);
-    res.status(200).json({
-      status: "success",
-      message: "Admin created successfully",
-      data: result,
-    });
-  } catch (error) {
-    next(error);
-  }
+const createAdmin = async (req: Request, res: Response) => {
+    try {
+        //console.log(req.body);
+        const result = await userService.createAdmin(req.body);
+        res.status(200).json({
+            success: true,
+            message: "Admin Created successfuly!",
+            data: result
+        })
+    }
+    catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err?.name || "Something went wrong",
+            error: err
+        })
+    }
 };
 
-export const userController = { createAdmin };
+export const userController = {
+    createAdmin
+}
